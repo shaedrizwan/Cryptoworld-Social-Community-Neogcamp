@@ -1,0 +1,32 @@
+.add-posts{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #bababb;
+    margin: 1rem 4rem;
+}
+
+.post-title{
+    font-weight: bold;
+    font-size: 2rem;
+
+}
+
+.post-input{
+    border: 1px solid #ececee;
+    border-radius: 8px;
+    padding: 10px 10px 50px 10px;
+    background-color: #eff5fa;
+    margin: 1rem 0rem;
+}
+
+.post-submit{
+    align-self: flex-start;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1DA1F2;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 2rem;
+
+}

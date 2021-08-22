@@ -1,0 +1,56 @@
+.sidebar{
+    flex:0.2;
+    margin: 1rem;
+    width: 100%;
+}
+
+.sidebar-profile{
+    margin:1rem;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top:10%;
+}
+
+.sidebar-profile-name{
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 10px 0px 2px 0px;
+}
+
+.sidebar-profile-username{
+    color:rgb(105, 105, 105);
+    font-size: .9rem;
+    padding-bottom: 25px;
+    text-align: center;
+
+}
+
+.sidebar-profile-bio{
+    color:rgb(105, 105, 105);
+    font-size: .9rem;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+.sidebar-profile-email{
+    color:rgb(105, 105, 105);
+    font-size: .9rem;
+    padding: 10px;
+}
+
+.profile-button{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1DA1F2;
+    color: white;
+    font-weight: 500px;
+    margin: 1rem 0rem;
+    text-decoration: none;
+}
