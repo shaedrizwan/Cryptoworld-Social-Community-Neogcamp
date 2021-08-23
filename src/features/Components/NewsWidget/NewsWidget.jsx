@@ -20,7 +20,7 @@ function NewsWidget() {
             <div className="news-container">
                 <div className="news-title">Trending News</div>
                 {status === "loading" && <div>News Loading...</div>}
-                {status === "fulfilled" && news.filter((item,idx)=>idx <6 ).map(({title,url,source}) =>{
+                {status === "fulfilled" && news.filter((item,idx)=>idx <4 ).map(({title,url,source}) =>{
                     return <NewsList key={url} heading={title} link={url} source={source} />
                 })}
                 {status === "error" && <div>Some error occured: {error}</div>}

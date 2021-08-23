@@ -55,3 +55,9 @@
     font-size: 0.8rem;
     color: gray;
 }
+
+@media(max-width:800px){
+    .signup-wrapper{
+        max-width: 70%;
+    }
+}

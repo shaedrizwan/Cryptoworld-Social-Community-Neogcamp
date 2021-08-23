@@ -54,3 +54,14 @@
     margin: 1rem 0rem;
     text-decoration: none;
 }
+
+@media(max-width:800px){
+    .sidebar{
+        margin: 0rem;
+        width: 100%;
+    }
+    
+    .sidebar-profile{
+        position: static;
+    }
+}

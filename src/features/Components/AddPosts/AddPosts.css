@@ -30,3 +30,22 @@
     margin-bottom: 2rem;
 
 }
+
+@media(max-width:800px){
+    .add-posts{
+        margin: 0;
+    }
+
+    .post-title{
+        font-size: 1.5rem;
+    }
+
+    .post-input{
+        font-size: 1rem;
+    }
+
+    .post-submit{
+        font-size: 1.0rem;
+        padding: 10px 30px;
+    }
+}
