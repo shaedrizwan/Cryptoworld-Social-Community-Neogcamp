@@ -2,7 +2,7 @@ import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios'
 
 export const loadNews = createAsyncThunk("news/loadNews",async ()=>{
-    const response = await axios.get('http://api.mediastack.com/v1/news?access_key=4f7a400f8714c28104c5a2699bd0d877&keywords=cryptocurrency')
+    const response = await axios.get('https://api.mediastack.com/v1/news?access_key=4f7a400f8714c28104c5a2699bd0d877&keywords=cryptocurrency')
     return response.data.data
 })
 
