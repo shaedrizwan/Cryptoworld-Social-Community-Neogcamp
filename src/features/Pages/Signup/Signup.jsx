@@ -4,9 +4,15 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import './Signup.css'
 import {useNavigate} from 'react-router-dom'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { BlockReserveLoading } from 'react-loadingg';
+
+toast.configure()
 
 function Signup() {
 
+    const [loader,setLoader] = useState(false)
     const initialState = {
         firstName:"",
         lastName:"",
@@ -26,9 +32,14 @@ function Signup() {
     }
 
     const signupButtonPressed = async() =>{
+        setLoader(true)
         const response = await axios.post('https://cryptoworld-backend.herokuapp.com/user/signup',newUser)
         if(response.status === 200){
-            console.log("registration successful")
+            setLoader(false)
+            toast.success("Registered successfully",{
+                autoClose:1000,
+                position:toast.POSITION.BOTTOM_RIGHT
+            })
             navigate('/login')
         }
     }
@@ -55,6 +66,7 @@ function Signup() {
                 <input className="signup-input" name="coverPicture" onChange={changeHandler} placeholder="Paste your Cover picture Url here"/>
                 <button className="login-button" onClick={signupButtonPressed}>Sign Up</button>
                 <div className="signup-subtext">Already have an account? <Link to="/login">Log in here!</Link></div>
+                {loader && <BlockReserveLoading color="purple"/>}
             </div>
         </div>
     )

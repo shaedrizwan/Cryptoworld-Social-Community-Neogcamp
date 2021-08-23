@@ -20,7 +20,6 @@ function Header() {
             </div>
             <div className="header-right">
                 <NavItem Icon={HomeIcon} name="Home" path={"/"}/>
-                <NavItem Icon={NotificationsIcon} name="Notifications" path={"/"}/>
                 <NavItem Icon={AccountCircleIcon} name="Profile" path={"/profile"}/>
                 <NavItem Icon={LockOpenIcon} name="Login" path={"/login"}/>
                 <NavItem Icon={LockOpenIcon} name="Signup" path={"/signup"}/>

@@ -3,7 +3,8 @@ import './App.css';
 import { Header } from './features/Components';
 import {Routes,Route, Navigate} from "react-router-dom"
 import { Home, Login, Post, Profile,NotFound, Signup } from './features/Pages';
-import {useSelector} from "react-redux"
+import {useSelector} from "react-redux";
+
 
 function App() {
   const {login} = useSelector(state =>state.auth)
