@@ -19,7 +19,7 @@ function PostsList({post}) {
         else{
             dispatch(likePost({post,userId}))
         }
-        const response = await axios.post('https://cryptoworld-backend.herokuapp.com/post/likePost',{
+        const response = await axios.post('https://cryptoworld-social.herokuapp.com/post/likePost',{
             postId:post._id
         },{
             headers:{

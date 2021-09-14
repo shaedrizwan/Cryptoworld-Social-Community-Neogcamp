@@ -33,7 +33,7 @@ function Signup() {
 
     const signupButtonPressed = async() =>{
         setLoader(true)
-        const response = await axios.post('https://cryptoworld-backend.herokuapp.com/user/signup',newUser)
+        const response = await axios.post('https://cryptoworld-social.herokuapp.com/user/signup',newUser)
         if(response.status === 200){
             setLoader(false)
             toast.success("Registered successfully",{

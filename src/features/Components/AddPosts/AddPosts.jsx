@@ -20,7 +20,7 @@ function AddPosts() {
     const postButtonPressed = async () =>{
         try{
             setLoader(true)
-            const response = await axios.post('https://cryptoworld-backend.herokuapp.com/post/add',{
+            const response = await axios.post('https://cryptoworld-social.herokuapp.com/post/add',{
                 post:data,
             },{
                 headers:{

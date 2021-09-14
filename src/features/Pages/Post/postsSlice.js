@@ -2,7 +2,7 @@ import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios'
 
 export const loadPosts = createAsyncThunk("posts/loadPosts",async ()=>{
-    const response = await axios.get('https://cryptoworld-backend.herokuapp.com/post');
+    const response = await axios.get('https://cryptoworld-social.herokuapp.com/post');
     return response.data
 })
 

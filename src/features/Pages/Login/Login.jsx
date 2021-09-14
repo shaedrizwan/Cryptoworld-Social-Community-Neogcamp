@@ -32,7 +32,7 @@ function Login() {
                 navigate('/')
             }else{
                 setLoader(true)
-                const response = await axios.post('https://cryptoworld-backend.herokuapp.com/user/login',{
+                const response = await axios.post('https://cryptoworld-social.herokuapp.com/user/login',{
                     username:username,
                     password:password
                     })
