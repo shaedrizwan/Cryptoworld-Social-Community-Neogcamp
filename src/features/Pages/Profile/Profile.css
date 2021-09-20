@@ -33,3 +33,46 @@
     text-align: center;
     padding-bottom: 40px;
 }
+
+.update-name-container{
+    background-color: white;
+    padding: 2rem;
+    position:absolute;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow:         3px 3px 5px 3px #ccc;
+    border-radius: 10px;
+}
+
+.update-name-container > input{
+    padding: 15px;
+    margin: 10px 0px 20px 0px;
+    width: 200px;
+    border: none;
+    background-color: #ececee;
+    border-radius: 10px;
+}
+
+.update-name-container > div{
+    font-weight: bold;
+}
+
+.update-name-container > button{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1DA1F2;
+    color: white;
+    font-weight: bold;
+    margin: 1rem 0rem;
+    cursor: pointer;
+}
+
+.update-name-close{
+    align-items: flex-end;
+    margin-left: auto;
+    font-weight: bold;
+    cursor: pointer;
+}
