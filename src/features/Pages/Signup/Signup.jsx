@@ -14,8 +14,7 @@ function Signup() {
 
     const [loader,setLoader] = useState(false)
     const initialState = {
-        firstName:"",
-        lastName:"",
+        name:"",
         email:"",
         username:"",
         password:"",
@@ -48,10 +47,8 @@ function Signup() {
         <div className="signup">
             <div className="signup-wrapper">
                 <div className="signup-heading">Signup</div>
-                <div className="signup-title">First name</div>
-                <input className="signup-input" name="firstName" onChange={changeHandler} placeholder="Enter your first name"/>
-                <div className="signup-title">Last name</div>
-                <input className="signup-input" name="lastName" onChange={changeHandler} placeholder="Enter your Last name"/>
+                <div className="signup-title">Name</div>
+                <input className="signup-input" name="name" onChange={changeHandler} placeholder="Enter your Name"/>
                 <div className="signup-title">Email</div>
                 <input className="signup-input" name="email" onChange={changeHandler} placeholder="Enter your Email "/>
                 <div className="signup-title">Username</div>
