@@ -4,6 +4,7 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 import {useDispatch,useSelector} from 'react-redux'
 import {likePost,dislikePost} from '../../Pages/Post/postsSlice'
 import axios from 'axios'
+import {Link} from "react-router-dom"
 
 function PostsList({post}) {
     const {user,token} = useSelector(state => state.auth)
@@ -34,8 +35,8 @@ function PostsList({post}) {
                 <img style={{width:"50px",height:"50px",borderRadius:"50%"}} src={post.profilePicture} alt={post.username}/>
             </div> 
             <div className="posts-content">
-                <div className="post-name">{post.name}</div>
-                <div className="post-username">{post.username}</div>
+                <Link to={`/profile/${post.username}`} className="post-name">{post.name}</Link>
+                <Link to={`/profile/${post.username}`} className="post-username">{post.username}</Link>
                 <div className="post-details">{post.post}</div>
                 <div className="like-count">{post.likes.length} Likes</div>
                 <div onClick={()=>likeButtonPressed(post)} className="post-like">

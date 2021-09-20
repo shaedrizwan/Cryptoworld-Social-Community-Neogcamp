@@ -18,12 +18,15 @@
 .post-name{
     font-weight: bold;
     font-size:1.1rem;
+    text-decoration: none;
+    color: black;
 }
 
 .post-username{
     font-size: 0.9rem;
     color:gray;
     padding-bottom: 10px;
+    text-decoration: none;
 }
 
 .post-details{

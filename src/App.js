@@ -21,7 +21,7 @@ function App() {
         <PrivateRoute path="/post/:id" login={login} element={<Post/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Signup/>}/>
-        <PrivateRoute path="/profile" login={login} element={<Profile/>}/>
+        <PrivateRoute path="/profile/:username" login={login} element={<Profile/>}/>
         <Route path="*" element={<NotFound/>}/>
       </Routes>
     </div>
