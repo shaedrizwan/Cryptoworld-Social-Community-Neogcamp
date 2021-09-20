@@ -26,7 +26,7 @@ function Login() {
                 localStorage?.removeItem('login')
                 dispatch(setLogout())
                 toast.success("Logged out successfully",{
-                    autoClose:1000,
+                    autoClose:3000,
                     position:toast.POSITION.BOTTOM_RIGHT
                 })
                 navigate('/')
@@ -39,7 +39,7 @@ function Login() {
                 if(response.status === 200){
                     setLoader(false)
                     toast.success("Logged in successfully",{
-                        autoClose:1000,
+                        autoClose:3000,
                         position:toast.POSITION.BOTTOM_RIGHT
                     })
                     dispatch(setLogin())
@@ -47,15 +47,15 @@ function Login() {
                     dispatch(setUser(response.data.user))
                     localStorage.setItem('login',JSON.stringify({login:true,token:response.data.token,user:response.data.user}))
                     state?navigate(state.from):navigate('/')
-                }else{
-                    toast.error("Login failed",{
-                        autoClose:1000,
-                        position: toast.POSITION.BOTTOM_RIGHT
-                    })
                 }
             }
         }catch(err){
-            console.log(err.message)
+            toast.error("Login failed! Invalid Username/Password",{
+                autoClose:3000,
+                position: toast.POSITION.BOTTOM_RIGHT
+            })
+        }finally{
+            setLoader(false)
         }
     }
 
