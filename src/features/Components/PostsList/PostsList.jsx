@@ -11,16 +11,19 @@ function PostsList({post}) {
     const {user,token} = useSelector(state => state.auth)
     const dispatch = useDispatch()
     const [showComments,setshowComments] = useState(false)
+    const [isLiked,setIsLiked] = useState(post.likes.find(id => id === user._id)?true:false)
     let newComment
+
 
     const likeButtonPressed = async (post) =>{
         const userId = user._id
-        const isLiked = post.likes.find(id => id === userId)
         if(isLiked){
             dispatch(dislikePost({post,userId}))
+            setIsLiked(false)
         }
         else{
             dispatch(likePost({post,userId}))
+            setIsLiked(true)
         }
         const response = await axios.post('https://cryptoworld-social.herokuapp.com/post/likePost',{
             postId:post._id
@@ -51,7 +54,7 @@ function PostsList({post}) {
                 <div className="actions-container">
                     <div onClick={()=>likeButtonPressed(post)} className="post-like">
                         <FavoriteBorderIcon/>
-                        <div>Like</div>
+                        <div>{isLiked?"Liked":"Like"}</div>
                     </div>
                     <div onClick={()=>setshowComments(toggle => !toggle)} className="post-comment">
                         <CommentIcon/>
@@ -59,12 +62,19 @@ function PostsList({post}) {
                     </div>
                 </div>
                 {showComments && <div className="comments-container">
-                    {post.comments.map(c => <div>
-                        <div>{c.name}</div>
-                        <div>{c.comment}</div>
+                    <div className="comments-title">Comments</div>
+                    {post.comments.map(c => <div className="comment-wrap">
+                        <div className="posts-dp">
+                            <img style={{width:"40px",height:"40px",borderRadius:"50%"}} src={c.profilePicture} alt={c.username}/>
+                        </div>
+                        <div className="posts-content">
+                            <Link to={`/profile/${c.username}`} className="comment-name">{c.name}</Link>
+                            <Link to={`/profile/${c.username}`} className="comment-username">{c.username}</Link>
+                            <div className="comment">{c.comment}</div>
+                        </div>
                         </div>)}
-                    <input onChange={e => newComment = e.target.value} placeholder="Your comment here"/>
-                    <button onClick={()=>commentButtonPressed()}>Comment</button>
+                    <input className="comment-input" onChange={e => newComment = e.target.value} placeholder="Your comment here"/>
+                    <button className="comment-submit" onClick={()=>commentButtonPressed()}>Comment</button>
                 </div>}
             </div>
         </div>
