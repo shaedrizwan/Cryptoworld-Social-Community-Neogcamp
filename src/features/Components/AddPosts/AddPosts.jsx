@@ -33,7 +33,7 @@ function AddPosts() {
                 position:toast.POSITION.BOTTOM_RIGHT
             })
             const id = uuid()
-            dispatch(addPost({_id:id,post:data,name:user.name,username:user.username,profilePicture:user.profilePicture,likes:[]}))
+            dispatch(addPost({_id:id,post:data,name:user.name,username:user.username,profilePicture:user.profilePicture,likes:[],comments:[]}))
             setData("")
         }catch(err){
             toast.error("Failed to add post",{
