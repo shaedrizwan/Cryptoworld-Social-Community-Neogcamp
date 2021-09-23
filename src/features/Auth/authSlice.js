@@ -23,9 +23,11 @@ export const authSlice = createSlice({
             state.user.name = action.payload
         },
         updateUsername: (state,action) => { state.user.username = action.payload },
-        updateBio: (state,action) => { state.user.bio = action.payload }
+        updateBio: (state,action) => { state.user.bio = action.payload },
+        addFollowing: (state,action) => { state.user.following.push(action.payload) },
+        removeFollowing: (state,action) => { state.user.following.pop(action.payload) }
     }
 })
 
-export const {setToken,setLogin,setLogout,setUser,updateName,updateBio,updateUsername} = authSlice.actions
+export const {setToken,setLogin,setLogout,setUser,updateName,updateBio,updateUsername,addFollowing,removeFollowing} = authSlice.actions
 export default authSlice.reducer

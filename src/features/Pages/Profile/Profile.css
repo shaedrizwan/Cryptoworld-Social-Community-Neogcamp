@@ -76,3 +76,7 @@
     font-weight: bold;
     cursor: pointer;
 }
+
+.follow-stats{
+    display: flex;
+}

@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 import './Profile.css'
 import { BlockReserveLoading } from 'react-loadingg';
 import CreateIcon from '@material-ui/icons/Create';
-import {updateName,updateBio} from "../../Auth/authSlice"
+import {updateName,updateBio,addFollowing,removeFollowing} from "../../Auth/authSlice"
 import {updatePostName} from "../Post/postsSlice"
 
 function Profile() {
@@ -15,8 +15,10 @@ function Profile() {
     const [userProfile,setUserProfile] = useState(null)
     const isUser = username === user.username
     const [popup,setPopup] = useState({name:false,bio:false})
+    const [isFollowing,setIsFollowing] = useState(false)
     let newName,newBio
     const dispatch = useDispatch()
+
 
     useEffect(()=>{
         (
@@ -40,6 +42,15 @@ function Profile() {
             }
         )()
     },[])
+
+    useEffect(()=>{
+        if(userProfile){
+            const following = userProfile.followers.find(follower => follower.username === user.username)
+            if(following){
+                setIsFollowing(true)
+            }
+        }
+    },[userProfile])
 
     const nameUpdatePressed = async() =>{
         const response = await axios.post("https://cryptoworld-social.herokuapp.com/user/updateName",{
@@ -76,6 +87,27 @@ function Profile() {
         }
     }
 
+    const FollowButtonPressed = async() =>{
+        const response = await axios.post("https://cryptoworld-social.herokuapp.com/user/updateFollow",{
+            followUserId:userProfile._id
+        },{
+            headers:{
+                authorization:token
+            }
+        })
+        if(response.status === 200){
+            if(isFollowing){
+                setIsFollowing(false)
+                setUserProfile({...userProfile,followers:userProfile.followers.filter(follower => follower.username !== user.username)})
+                dispatch(removeFollowing({name:userProfile.name,username:userProfile.username,profilePicture:userProfile.profilePicture}))
+            }else{
+                setIsFollowing(true)
+                setUserProfile({...userProfile,followers:[...userProfile.followers,{name:user.name,username:user.username,profilePicture:user.profilePicture}]})
+                dispatch(addFollowing({name:userProfile.name,username:userProfile.username,profilePicture:userProfile.profilePicture}))
+            }
+        }
+    }
+
     return (
         <div className="profile">
             {!userProfile && <BlockReserveLoading/>}
@@ -92,6 +124,11 @@ function Profile() {
                     <button onClick={()=>nameUpdatePressed()}>Update</button>
                     </div>}
                 <div className="profile-username">@{userProfile.username}</div>
+                {!isUser && <button onClick={()=>FollowButtonPressed()}>{isFollowing?"Following":"Follow"}</button>}
+                <div className="follow-stats">
+                    <div>{userProfile.followers.length} Followers</div>
+                    <div>{userProfile.following.length} Following</div>
+                </div>
                 <div className="profile-bio">{userProfile.bio} {isUser && <CreateIcon onClick={()=>setPopup({...popup,bio:!popup.bio})} fontSize="small"/>}</div>
                 {popup.bio && <div className="update-name-container">
                     <div onClick={()=>setPopup({...popup,bio:false})} className="update-name-close">x</div>
