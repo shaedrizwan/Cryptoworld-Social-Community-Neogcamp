@@ -124,11 +124,11 @@ function Profile() {
                     <button onClick={()=>nameUpdatePressed()}>Update</button>
                     </div>}
                 <div className="profile-username">@{userProfile.username}</div>
-                {!isUser && <button onClick={()=>FollowButtonPressed()}>{isFollowing?"Following":"Follow"}</button>}
                 <div className="follow-stats">
-                    <div>{userProfile.followers.length} Followers</div>
-                    <div>{userProfile.following.length} Following</div>
+                    <div className="follow-stats-item">{userProfile.followers.length} Followers</div>
+                    <div className="follow-stats-item">{userProfile.following.length} Following</div>
                 </div>
+                {!isUser && <button className={isFollowing?"primary-button":"secondary-button"} onClick={()=>FollowButtonPressed()}>{isFollowing?"Following":"Follow"}</button>}
                 <div className="profile-bio">{userProfile.bio} {isUser && <CreateIcon onClick={()=>setPopup({...popup,bio:!popup.bio})} fontSize="small"/>}</div>
                 {popup.bio && <div className="update-name-container">
                     <div onClick={()=>setPopup({...popup,bio:false})} className="update-name-close">x</div>

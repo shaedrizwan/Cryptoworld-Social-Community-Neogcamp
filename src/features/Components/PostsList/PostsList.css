@@ -5,6 +5,7 @@
     background-color: #ecf5fc;
     padding: 20px 10px;
     border-radius: 10px;
+    padding-right: 3rem;
 }
 
 .posts-content{
@@ -37,12 +38,40 @@
     border-bottom: 1px solid rgb(221, 220, 220);
 }
 
+
 .like-count{
     font-size: 0.9rem;
     padding-bottom: 10px;
 }
 
+.comments-count{
+    font-size: 0.9rem;
+    padding-bottom: 10px;
+    padding-left: 1rem;
+}
+
+.comment-name{
+    font-weight: bold;
+    font-size:0.9rem;
+    text-decoration: none;
+    color: black;
+}
+
+.comment-username{
+    font-size: 0.8rem;
+    color:gray;
+    padding-bottom: 10px;
+    text-decoration: none;
+}
+
 .post-like{
+    display: flex;
+    max-width: fit-content;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.post-comment{
     display: flex;
     max-width: fit-content;
     padding: 5px 15px;
@@ -57,10 +86,6 @@
     display: flex;
 }
 
-.post-comment{
-    display: flex;
-}
-
 .fullpost-container{
     background-color: white;
     height: 400px;
@@ -69,6 +94,45 @@
     top:30%;
     left: 30%;
 }
+
+.comments-title{
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+}
+
+.comments-container{
+    background-color: #f4faff;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.comment-wrap{
+    padding: 0.5rem;
+    display: flex;
+}
+
+.comment-input{
+    border: 1px solid #ececee;
+    border-radius: 8px;
+    padding: 10px 10px 50px 10px;
+    background-color: white;
+    margin: 1rem 0rem;
+    width: 80%;
+    display: block;
+}
+
+.comment-submit{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1DA1F2;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+
+
 
 @media(max-width:800px){
     .posts-list{

@@ -23,7 +23,7 @@
     color: gray;
     font-weight: 600;
     font-size: 1.2rem;
-    margin-bottom: 25px;
+    margin-bottom: 0.5rem;
 }
 
 .profile-bio{
@@ -79,4 +79,34 @@
 
 .follow-stats{
     display: flex;
+}
+
+.primary-button{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1DA1F2;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.secondary-button{
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    border: 3px solid #1DA1F2;
+    border-radius: 8px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+
+.follow-stats-item{
+    padding: 0rem 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
 }
