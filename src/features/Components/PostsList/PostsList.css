@@ -44,12 +44,30 @@
 
 .post-like{
     display: flex;
-    border: 1px solid gray;
     max-width: fit-content;
     padding: 5px 15px;
-    border-radius: 5px;
     cursor: pointer;
+}
+
+.stats-container{
+    display: flex;
+}
+
+.actions-container{
+    display: flex;
+}
+
+.post-comment{
+    display: flex;
+}
+
+.fullpost-container{
     background-color: white;
+    height: 400px;
+    width: 400px;
+    position:absolute;
+    top:30%;
+    left: 30%;
 }
 
 @media(max-width:800px){

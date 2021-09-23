@@ -23,6 +23,9 @@ export const postsSlice = createSlice({
         addPost: (state,action)=> { state.posts.unshift(action.payload) },
         updatePostName: (state,action) => {
             state.posts.map(post => post.name === action.payload.oldName?post.name = action.payload.newName:post)
+        },
+        addComment: (state,action) =>{
+            state.posts.map(post => post.post === action.payload.post? post.comments.push(action.payload.newComment):post)
         }
     },
     extraReducers:{
@@ -40,5 +43,5 @@ export const postsSlice = createSlice({
     }
 })
 
-export const {likePost,dislikePost,addPost,updatePostName} = postsSlice.actions
+export const {likePost,dislikePost,addPost,updatePostName,addComment} = postsSlice.actions
 export default postsSlice.reducer
