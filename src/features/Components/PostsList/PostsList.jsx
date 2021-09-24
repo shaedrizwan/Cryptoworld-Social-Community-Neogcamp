@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import './PostsList.css'
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 import {useDispatch,useSelector} from 'react-redux'
 import {likePost,dislikePost,addComment} from '../../Pages/Post/postsSlice'
 import axios from 'axios'
 import {Link} from "react-router-dom"
 import CommentIcon from '@material-ui/icons/Comment'
+import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt'
 
 function PostsList({post}) {
     const {user,token} = useSelector(state => state.auth)
@@ -61,7 +61,7 @@ function PostsList({post}) {
                 </div>
                 <div className="actions-container">
                     <div onClick={()=>likeButtonPressed(post)} className="post-like">
-                        <FavoriteBorderIcon/>
+                        <ThumbUpAltIcon className={isLiked?"like-colored":"like-uncolored"} />
                         <div>{isLiked?"Liked":"Like"}</div>
                     </div>
                     <div onClick={()=>setshowComments(toggle => !toggle)} className="post-comment">

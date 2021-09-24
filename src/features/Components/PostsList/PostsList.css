@@ -132,6 +132,13 @@
     cursor: pointer;
 }
 
+.like-colored{
+    color: blue;
+}
+
+.like-uncolored{
+    color: black;
+}
 
 
 @media(max-width:800px){
