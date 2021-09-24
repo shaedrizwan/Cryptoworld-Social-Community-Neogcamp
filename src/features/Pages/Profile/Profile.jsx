@@ -8,13 +8,14 @@ import { BlockReserveLoading } from 'react-loadingg';
 import CreateIcon from '@material-ui/icons/Create';
 import {updateName,updateBio,addFollowing,removeFollowing} from "../../Auth/authSlice"
 import {updatePostName} from "../Post/postsSlice"
+import {Link} from "react-router-dom"
 
 function Profile() {
     const {user,token} = useSelector(state => state.auth)
     const {username} = useParams()
     const [userProfile,setUserProfile] = useState(null)
     const isUser = username === user.username
-    const [popup,setPopup] = useState({name:false,bio:false})
+    const [popup,setPopup] = useState({name:false,bio:false,followers:false,following:false})
     const [isFollowing,setIsFollowing] = useState(false)
     let newName,newBio
     const dispatch = useDispatch()
@@ -125,8 +126,34 @@ function Profile() {
                     </div>}
                 <div className="profile-username">@{userProfile.username}</div>
                 <div className="follow-stats">
-                    <div className="follow-stats-item">{userProfile.followers.length} Followers</div>
-                    <div className="follow-stats-item">{userProfile.following.length} Following</div>
+                    <div onClick={()=> setPopup({...popup,followers:!popup.followers})} className="follow-stats-item">{userProfile.followers.length} Followers</div>
+                    {popup.followers && <div className="followers-container">
+                            <div className="follow-container-close" onClick={()=> setPopup({...popup,followers:false})}>X</div>
+                            {userProfile.followers.length === 0 && <div>{userProfile.name} does not have any followers</div>}
+                            {userProfile.followers.length !== 0 && userProfile.followers.map(profile => <div className="follow-list-wrap">
+                            <div className="profile-dp">
+                                <img style={{width:"50px",height:"50px",borderRadius:"50%"}} src={profile.profilePicture} alt={profile.username}/>
+                            </div>
+                            <div className="follow-list-content">
+                                <Link to={`/profile/${profile.username}`} className="follow-list-name">{profile.name}</Link>
+                                <Link to={`/profile/${profile.username}`} className="follow-list-username">{profile.username}</Link>
+                            </div>
+                            </div>)}
+                        </div>}
+                    <div onClick={()=> setPopup({...popup,following:!popup.following})} className="follow-stats-item">{userProfile.following.length} Following</div>
+                    {popup.following && <div className="followers-container">
+                            <div className="follow-container-close" onClick={()=> setPopup({...popup,following:false})}>X</div>
+                            {userProfile.following.length === 0 && <div>{userProfile.name} does not follow anyone</div>}
+                            {userProfile.following.length !== 0 && userProfile.following.map(profile => <div className="follow-list-wrap">
+                            <div className="profile-dp">
+                                <img style={{width:"50px",height:"50px",borderRadius:"50%"}} src={profile.profilePicture} alt={profile.username}/>
+                            </div>
+                            <div className="follow-list-content">
+                                <Link to={`/profile/${profile.username}`} className="follow-list-name">{profile.name}</Link>
+                                <Link to={`/profile/${profile.username}`} className="follow-list-username">{profile.username}</Link>
+                            </div>
+                            </div>)}
+                        </div>}
                 </div>
                 {!isUser && <button className={isFollowing?"primary-button":"secondary-button"} onClick={()=>FollowButtonPressed()}>{isFollowing?"Following":"Follow"}</button>}
                 <div className="profile-bio">{userProfile.bio} {isUser && <CreateIcon onClick={()=>setPopup({...popup,bio:!popup.bio})} fontSize="small"/>}</div>
