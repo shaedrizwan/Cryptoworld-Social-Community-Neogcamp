@@ -34,7 +34,15 @@ function PostsList({post}) {
         })
     }
 
-    const commentButtonPressed = () =>{
+    const commentButtonPressed = async() =>{
+        const response = await axios.post('https://cryptoworld-social.herokuapp.com/post/addComment',{
+            postId:post._id,
+            comment:newComment
+        },{
+            headers:{
+                authorization:token
+            }
+        })
         dispatch(addComment({post:post.post,newComment:{comment:newComment,name:user.name,username:user.username,profilePicture:user.profilePicture}}))
     }
 
