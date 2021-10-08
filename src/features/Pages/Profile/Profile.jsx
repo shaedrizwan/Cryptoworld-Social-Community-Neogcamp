@@ -42,7 +42,7 @@ function Profile() {
                 }
             }
         )()
-    },[])
+    },[username])
 
     useEffect(()=>{
         if(userProfile){

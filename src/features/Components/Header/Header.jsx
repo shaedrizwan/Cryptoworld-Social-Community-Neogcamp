@@ -12,7 +12,7 @@ import {useSelector} from "react-redux"
 function Header() {
 
     const [showMenu,setShowMenu] = useState(false)
-    const {user} = useSelector(state => state.auth)
+    const {user,login} = useSelector(state => state.auth)
 
     return (
         <div className="header">
@@ -21,17 +21,16 @@ function Header() {
             </div>
             <div className="header-right">
                 <NavItem Icon={HomeIcon} name="Home" path={"/"}/>
-                <NavItem Icon={AccountCircleIcon} name="Profile" path={`/profile/${user.username}`}/>
-                <NavItem Icon={LockOpenIcon} name="Login" path={"/login"}/>
-                <NavItem Icon={LockOpenIcon} name="Signup" path={"/signup"}/>
+                {user && <NavItem Icon={AccountCircleIcon} name="Profile" path={`/profile/${user.username}`}/>}
+                <NavItem Icon={LockOpenIcon} name={login?"Logout":"Login"} path={"/login"}/>
+                {!login && <NavItem Icon={LockOpenIcon} name="Signup" path={"/signup"}/>}
             </div>
             <div onClick={()=>setShowMenu(toggle=>!toggle)} className="header-hamburger"><MenuIcon/></div>
             {showMenu && <div className="header-menu">
                 <NavLink onClick={()=>setShowMenu(false)} className="menu-items" to="/">Home</NavLink>
                 <NavLink onClick={()=>setShowMenu(false)} className="menu-items" to={`/profile/${user.username}`}>Profile</NavLink>
                 <NavLink onClick={()=>setShowMenu(false)} className="menu-items" to="/login">Login</NavLink>
-                <NavLink onClick={()=>setShowMenu(false)} className="menu-items" to="/signup">Signup</NavLink>
-
+                {!login && <NavLink onClick={()=>setShowMenu(false)} className="menu-items" to="/signup">Signup</NavLink>}
             </div>}
         </div>
     )

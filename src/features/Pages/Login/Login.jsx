@@ -59,6 +59,29 @@ function Login() {
         }
     }
 
+    const LoginWithDemoPressed = async(username="elonmusk",password="elonmusk") =>{
+        try{
+            setLoader(true)
+                const response = await axios.post('https://cryptoworld-social.herokuapp.com/user/login',{
+                    username:username,
+                    password:password
+                    })
+                if(response.status === 200){
+                    toast.success("Logged in successfully",{
+                        autoClose:3000,
+                        position:toast.POSITION.BOTTOM_RIGHT
+                    })
+                    dispatch(setLogin())
+                    dispatch(setToken(response.data.token))
+                    dispatch(setUser(response.data.user))
+                    localStorage.setItem('login',JSON.stringify({login:true,token:response.data.token,user:response.data.user}))
+                    state?navigate(state.from):navigate('/')
+                }
+        }finally{
+            setLoader(false)
+        }
+    }
+
     return (
         <div className="login">
             <div className="login-wrapper">
@@ -72,6 +95,7 @@ function Login() {
                 {login && <div className="login-title">You're already logged in!</div>}
                 <button className="login-button" onClick={()=>LoginButtonPressed()}>{login ? "Log out":"Login"}</button>
                 <div className="login-subtext">Not registered? <Link to="/signup">Sign up here!</Link></div>
+                {!login && <button className="login-button" onClick={()=>LoginWithDemoPressed()}>Login with Demo Credentials</button>}
                 {loader && <BlockReserveLoading color="purple"/>}
             </div>
         </div>
