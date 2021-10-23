@@ -19,7 +19,7 @@ function NewsWidget() {
         <div className="news-widget">
             <div className="news-container">
                 <div className="news-title">Trending News</div>
-                {status === "loading" && <div>News Loading...</div>}
+                {status === "loading" && <div>News Widget works only on HTTP connection. Please allow HTTP connection to view this section.</div>}
                 {status === "fulfilled" && news.filter((item,idx)=>idx <4 ).map(({title,url,source}) =>{
                     return <NewsList key={url} heading={title} link={url} source={source} />
                 })}

@@ -12,7 +12,7 @@ function PostsList({post}) {
     const dispatch = useDispatch()
     const [showComments,setshowComments] = useState(false)
     const [isLiked,setIsLiked] = useState(post.likes.find(id => id === user._id)?true:false)
-    let newComment
+    const [newComment,setNewComment] = useState("")
 
 
     const likeButtonPressed = async (post) =>{
@@ -44,6 +44,7 @@ function PostsList({post}) {
             }
         })
         dispatch(addComment({post:post.post,newComment:{comment:newComment,name:user.name,username:user.username,profilePicture:user.profilePicture}}))
+        setNewComment("")
     }
 
     return (
@@ -81,7 +82,7 @@ function PostsList({post}) {
                             <div className="comment">{c.comment}</div>
                         </div>
                         </div>)}
-                    <input className="comment-input" onChange={e => newComment = e.target.value} placeholder="Your comment here"/>
+                    <input className="comment-input" value={newComment} onChange={e => setNewComment(e.target.value)} placeholder="Your comment here"/>
                     <button className="comment-submit" onClick={()=>commentButtonPressed()}>Comment</button>
                 </div>}
             </div>

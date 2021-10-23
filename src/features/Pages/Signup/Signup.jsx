@@ -36,7 +36,7 @@ function Signup() {
         if(response.status === 200){
             setLoader(false)
             toast.success("Registered successfully",{
-                autoClose:1000,
+                autoClose:3000,
                 position:toast.POSITION.BOTTOM_RIGHT
             })
             navigate('/login')
