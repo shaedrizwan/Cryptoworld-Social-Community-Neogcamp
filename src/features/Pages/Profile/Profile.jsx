@@ -135,8 +135,8 @@ function Profile() {
                                 <img style={{width:"50px",height:"50px",borderRadius:"50%"}} src={profile.profilePicture} alt={profile.username}/>
                             </div>
                             <div className="follow-list-content">
-                                <Link to={`/profile/${profile.username}`} className="follow-list-name">{profile.name}</Link>
-                                <Link to={`/profile/${profile.username}`} className="follow-list-username">{profile.username}</Link>
+                                <Link onClick={()=> setPopup({...popup,followers:!popup.followers})} to={`/profile/${profile.username}`} className="follow-list-name">{profile.name}</Link>
+                                <Link onClick={()=> setPopup({...popup,followers:!popup.followers})} to={`/profile/${profile.username}`} className="follow-list-username">{profile.username}</Link>
                             </div>
                             </div>)}
                         </div>}
@@ -149,8 +149,8 @@ function Profile() {
                                 <img style={{width:"50px",height:"50px",borderRadius:"50%"}} src={profile.profilePicture} alt={profile.username}/>
                             </div>
                             <div className="follow-list-content">
-                                <Link to={`/profile/${profile.username}`} className="follow-list-name">{profile.name}</Link>
-                                <Link to={`/profile/${profile.username}`} className="follow-list-username">{profile.username}</Link>
+                                <Link onClick={()=> setPopup({...popup,following:!popup.following})} to={`/profile/${profile.username}`} className="follow-list-name">{profile.name}</Link>
+                                <Link onClick={()=> setPopup({...popup,following:!popup.following})} to={`/profile/${profile.username}`} className="follow-list-username">{profile.username}</Link>
                             </div>
                             </div>)}
                         </div>}

@@ -66,4 +66,8 @@
     .header-hamburger{
         display: none;
     }
+
+    .header-menu{
+        display: none;
+    }
 }
