@@ -1,0 +1,19 @@
+.nav-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    cursor:pointer;
+    color:rgb(90, 90, 90);
+    text-decoration: none;
+}
+
+.nav-item:hover{
+    color: #000;
+}
+
+
+.nav-title{
+    font-size: .9rem;
+    font-weight:600;
+}

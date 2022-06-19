@@ -1,0 +1,31 @@
+.news-list{
+    margin: 1rem 0rem;
+    padding: 0.5rem 1rem;
+}
+
+.news-heading{
+    font-weight: 600;
+    font-size: .9rem;
+}
+
+.news-subcontainer{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+
+.news-link{
+    text-decoration: none;
+    color: gray;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.news-link:hover{
+    color:blue;
+    text-decoration: underline;
+}
+
+.news-source{
+    font-size: 0.8rem;
+}
