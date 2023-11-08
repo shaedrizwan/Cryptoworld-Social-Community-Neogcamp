@@ -1,0 +1,159 @@
+.profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+    background-color: #e4e4f7;
+}
+
+.profile-main{
+    background-color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-name{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.profile-username{
+    color: gray;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.profile-bio{
+    font-size: 1.2rem;
+    font-weight: 400;
+    max-width: 500px;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.update-name-container{
+    background-color: white;
+    padding: 2rem;
+    position:absolute;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow:         3px 3px 5px 3px #ccc;
+    border-radius: 10px;
+}
+
+.update-name-container > input{
+    padding: 15px;
+    margin: 10px 0px 20px 0px;
+    width: 200px;
+    border: none;
+    background-color: #ececee;
+    border-radius: 10px;
+}
+
+.update-name-container > div{
+    font-weight: bold;
+}
+
+.update-name-container > button{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1DA1F2;
+    color: white;
+    font-weight: bold;
+    margin: 1rem 0rem;
+    cursor: pointer;
+}
+
+.update-name-close{
+    align-items: flex-end;
+    margin-left: auto;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.follow-stats{
+    display: flex;
+}
+
+.primary-button{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1DA1F2;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.secondary-button{
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    border: 3px solid #1DA1F2;
+    border-radius: 8px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+
+.follow-stats-item{
+    padding: 0rem 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.followers-container{
+    background-color: white;
+    width: 350px;
+    height: 400px;
+    position: absolute;
+    top: 30%;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px 3px #ccc;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.follow-container-close{
+    align-self: flex-end;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.follow-list-name{
+    font-weight: bold;
+    font-size:1.1rem;
+    text-decoration: none;
+    color: black;
+}
+
+.follow-list-username{
+    font-size: 1rem;
+    color:gray;
+    padding-bottom: 10px;
+    text-decoration: none;
+}
+
+.follow-list-wrap{
+    display: flex;
+    background-color: #f7f7f7;
+    padding: 0.5rem;
+}
+
+.follow-list-content{
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+}
